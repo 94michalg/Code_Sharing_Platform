@@ -4,6 +4,8 @@ import freemarker.core.ParseException;
 import freemarker.template.*;
 import org.springframework.stereotype.Component;
 
+import java.io.File;
+
 @Component
 public class ConfigurationManager {
 
@@ -11,7 +13,8 @@ public class ConfigurationManager {
 
     public ConfigurationManager() {
         try {
-            cfg.setDirectoryForTemplateLoading(new java.io.File("C:\\Users\\Michal\\Downloads\\demo (1)\\Code Sharing Platform\\Code Sharing Platform\\task\\src\\platform\\web\\templates"));
+            File file = new File("Code Sharing Platform\\task\\src\\platform\\web\\templates");
+            cfg.setDirectoryForTemplateLoading(new java.io.File(String.valueOf(file.toPath().toAbsolutePath())));
         } catch (Exception e) {
             e.printStackTrace();
         }

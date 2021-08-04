@@ -57,11 +57,16 @@ public class APIController {
 
     @PostMapping(value = "/api/code/new", consumes = "application/json")
     public ResponseEntity<Map> postCode(@RequestBody Code code) {
-        Code savedCode = codeRepository.save(code);
-
         Map response = new HashMap();
-        response.put("id", "" + savedCode.getId());
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
 
+        if (code.getCode() == null) {
+            response.put("error", "Code can't be empty");
+            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        } else {
+            Code savedCode = codeRepository.save(code);
+            response.put("id", "" + savedCode.getId());
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+
+    }
 }

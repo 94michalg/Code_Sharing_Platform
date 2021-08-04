@@ -30,7 +30,7 @@ public class HTMLTemplates {
             "        xhr.send(json);\n" +
             "\n" +
             "        if (xhr.status == 200) {\n" +
-            "          alert(\"Success!\");\n" +
+            "          alert(\"Success! \\r\\n\" + xhr.responseText);\n" +
             "        } else {\n" +
             "          alert(\"Something went wrong!\");\n" +
             "        }\n" +
