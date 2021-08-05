@@ -13,8 +13,7 @@ import java.util.UUID;
 @Entity
 public class Code {
 
-
-    //Automatically set to random UUID
+    //Automatically set id to random UUID
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Id
     private String id;
@@ -49,7 +48,7 @@ public class Code {
     private boolean restrictedViews;
 
 
-    //When creating an object, set time of creation, random UUID as ID
+    // When creating an object, set time of creation, random UUID as ID
     // and both restrictions to false
     public Code() {
         this.date = LocalDateTime.now();
